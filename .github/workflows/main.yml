@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Unit Tests
         run: |
-          python -m unittest circle_test
-          python -m unittest rectangle_test
-          python -m unittest square_test
-          python -m unittest triangle_test
+          python -m unittest rectangle_test  # Run rectangle tests
+          python -m unittest circle_test      # Run circle tests (ensure this file exists)
+          python -m unittest square_test       # Run square tests (ensure this file exists)
+          python -m unittest triangle_test     # Run triangle tests (ensure this file exists)
