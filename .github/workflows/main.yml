@@ -13,15 +13,22 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         python-version: [3.8]
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Ensure you have a requirements.txt file
+
       - name: Run Unit Tests
         run: |
-          python3 circle_test.py
-          python3 rectangle_test.py
-          python3 square_test.py
-          python3 triangle_test.py
+          python -m unittest circle_test
+          python -m unittest rectangle_test
+          python -m unittest square_test
+          python -m unittest triangle_test
