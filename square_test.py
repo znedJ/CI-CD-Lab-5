@@ -1,33 +1,37 @@
 import unittest
-def square_area(a):
-    if a < 0:
-        raise ValueError("Сторон должна быть неотрицательной.")
-    return a*a
-def square_perimetr(a):
-    if a < 0:
-        raise ValueError("Сторон должна быть неотрицательной.")
-    return a*4
-class TestTriangleArea(unittest.TestCase):
-
-    def test_area_positive(self):
-        self.assertEqual(square_area(4), 16)
-        self.assertEqual(square_area(10), 100)
-
-    def test_area_zero(self):
-        self.assertEqual(square_area(0), 0)
 
 
+class SquareTestCase(unittest.TestCase):
+
+    def test_zero_area(self):
+        res = area(0)
+        self.assertEqual(res, 0)
+
+    def test_zero_perimeter(self):
+        res = perimeter(0)
+        self.assertEqual(res, 0)
+
+    def test_circle_area_1(self):
+        res = area(10)
+        self.assertEqual(res, 100)
+
+    def test_circle_area_2(self):
+        res = area(7 * 5)
+        self.assertEqual(res, 35 ** 2)
+
+    def test_circle_perimeter_1(self):
+        res = perimeter(8 * 15)
+        self.assertEqual(res, (8 * 15) * 4)
+
+    def test_circle_perimeter_2(self):
+        res = perimeter(45)
+        self.assertEqual(res, 45 * 4)
 
 
-class TestTrianglePerimetr(unittest.TestCase):
-
-    def test_perimetr_positive(self):
-        self.assertEqual(square_perimetr(4), 16)
-        self.assertEqual(square_perimetr(10), 40)
-
-    def test_perimetr_zero(self):
-        self.assertEqual(square_perimetr(0 ), 0)
+def area(a):
+    return a * a
 
 
-if __name__ == '__main__':
-    unittest.main()
+def perimeter(a):
+    return 4 * a
+

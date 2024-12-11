@@ -1,30 +1,39 @@
+import math
 import unittest
-def circle_area(r):
-    if r < 0:
-        raise ValueError("Радиус должен быть неотрицательным.")
-    return (3,14 * r * r)
-def circle_perimetr(r):
-    if r < 0:
-        raise ValueError("Радиус должен быть неотрицательным.")
-    return 6,28 * r
-class TestTriangleArea(unittest.TestCase):
-
-    def test_area_positive(self):
-        self.assertEqual(circle_area(10), 314)
 
 
-    def test_area_zero(self):
-        self.assertEqual(circle_area(0), 0)
+class CircleTestCase(unittest.TestCase):
+
+    def test_zero_area(self):
+        res = area(0)
+        self.assertEqual(res, 0)
+
+    def test_zero_perimeter(self):
+        res = perimeter(0)
+        self.assertEqual(res, 0)
+
+    def test_circle_area_1(self):
+        res = area(10)
+        self.assertEqual(res, math.pi * 100)
+
+    def test_circle_area_2(self):
+        res = area(7 * 5)
+        self.assertEqual(res, math.pi * 35 ** 2)
+
+    def test_circle_perimeter_1(self):
+        res = perimeter(8 * 15)
+        self.assertEqual(res, math.pi * (8 * 15) * 2)
+
+    def test_circle_perimeter_2(self):
+        res = perimeter(45)
+        self.assertEqual(res, math.pi * 45 * 2)
 
 
-class TestTrianglePerimetr(unittest.TestCase):
-
-    def test_perimetr_positive(self):
-        self.assertEqual(circle_perimetr(100), 628)
-
-    def test_perimetr_zero(self):
-        self.assertEqual(circle_perimetr(0), 0)
+def area(r):
+    return math.pi * r * r
 
 
-if __name__ == '__main__':
-    unittest.main()
+def perimeter(r):
+    return 2 * math.pi * r
+
+
