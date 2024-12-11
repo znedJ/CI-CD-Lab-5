@@ -1,6 +1,6 @@
 import unittest
 def circle_area(r):
-    if r < 0 :
+    if r < 0:
         raise ValueError("Радиус должен быть неотрицательным.")
     return (3,14 * r * r)
 def circle_perimetr(r):
