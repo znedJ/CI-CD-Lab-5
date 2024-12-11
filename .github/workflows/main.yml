@@ -1,17 +1,15 @@
-name: Run Unit Tests
+name: Python CI
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: [3.8]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
