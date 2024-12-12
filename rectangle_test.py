@@ -3,6 +3,7 @@ import unittest
 
 class RectangleTestCase(unittest.TestCase):
 
+
     def test_zero_area(self):
         res = area(10, 0)
         self.assertEqual(res, 0)
